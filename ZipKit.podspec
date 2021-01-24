@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kolpanic/ZipKit.git", :tag => "1.0.3" }
 
   s.source_files  = "**/*.{h,m}"
-  s.ios.exclude_files = "GMAppleDouble"
+  s.ios.exclude_files = "GMAppleDouble", "Demos"
 
   s.ios.frameworks = "Foundation"
   s.osx.frameworks = "Foundation", "CoreServices"
