@@ -10,6 +10,7 @@
 #import "NSFileManager+ZKAdditions.h"
 #import "ZKCDTrailer.h"
 #import "ZKDefs.h"
+#import "ZKCDHeader.h"
 
 #pragma mark -
 
@@ -116,6 +117,15 @@
 }
 - (void)setComment:(NSString *)comment {
     self.cdTrailer.comment = comment;
+}
+
+- (NSNumber *)uncompressedSize {
+    UInt64 total = 0;
+    for (ZKCDHeader *cdHeader in self.centralDirectory) {
+        total += cdHeader.uncompressedSize;
+    }
+
+    return @(total);
 }
 
 #pragma mark -

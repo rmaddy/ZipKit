@@ -73,6 +73,7 @@
 @property (strong) ZKCDTrailer *cdTrailer;
 @property (assign) NSTimeInterval throttleThreadSleepTime;
 @property (copy) NSString *comment;
+@property (readonly) NSNumber *uncompressedSize;
 
 @property (assign) BOOL overwriteExistingFiles;
 
