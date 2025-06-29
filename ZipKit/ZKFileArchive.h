@@ -12,7 +12,7 @@
 
 @interface ZKFileArchive : ZKArchive
 
-+ (ZKFileArchive *)process:(id)item usingResourceFork:(BOOL)flag withInvoker:(id)invoker andDelegate:(id)delegate;
++ (ZKFileArchive *)process:(id)item usingResourceFork:(BOOL)flag withInvoker:(id)invoker useZip64:(BOOL)useZip64 andDelegate:(id)delegate;
 + (ZKFileArchive *)archiveWithArchivePath:(NSString *)archivePath;
 
 - (NSInteger)inflateToDiskUsingResourceFork:(BOOL)flag;

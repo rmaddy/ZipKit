@@ -34,7 +34,7 @@
    delegate should be an object that responds to one or more of the messages in the above category to display progress (see the Application or Tool targets for examples)
  */
 
-+ (ZKFileArchive *)process:(id)item usingResourceFork:(BOOL)rfFlag withInvoker:(id)invoker andDelegate:(id)delegate {
++ (ZKFileArchive *)process:(id)item usingResourceFork:(BOOL)rfFlag withInvoker:(id)invoker useZip64:(BOOL)useZip64 andDelegate:(id)delegate {
     ZKFileArchive *archive = nil;
 
     if ([item isKindOfClass:[NSArray class]]) {
@@ -51,6 +51,7 @@
                 return nil;
             }
             archive.invoker = invoker;
+            archive.useZip64Extensions = useZip64;
             if (delegate) {
                 archive.delegate = delegate;
                 if ([archive delegateWantsSizes]) {
@@ -107,6 +108,7 @@
                 return nil;
             }
             archive.invoker = invoker;
+            archive.useZip64Extensions = useZip64;
             if (delegate) {
                 archive.delegate = delegate;
                 [NSThread detachNewThreadSelector:@selector(calculateSizeAndItemCount:) toTarget:archive
@@ -160,6 +162,7 @@
             return nil;
         }
         archive.invoker = invoker;
+        archive.useZip64Extensions = useZip64;
         if (delegate) {
             archive.delegate = delegate;
             [NSThread detachNewThreadSelector:@selector(calculateSizeAndItemCount:) toTarget:archive
